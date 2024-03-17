@@ -2,6 +2,8 @@ const express = require('express')
 const db = require('./db')
 const app = express()
 const port = 5418
+require('dotenv').config();
+const PORT = process.env.PORT || 5418;
 
 const Person = require('./models/person')
 const menuItem = require('./models/menu')
@@ -18,6 +20,8 @@ app.use('/main', menuRoutes)
 
 const personRoutes = require("./routes/personRoutes")
 app.use('/person', personRoutes)
+
+
 
 
 app.listen(port, () => {
